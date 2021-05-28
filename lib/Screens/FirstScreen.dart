@@ -1,4 +1,5 @@
 
+import 'package:app_pet_control/Screens/CreateAccountScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -13,7 +14,6 @@ class FirstScreen extends StatefulWidget {
 
 class _FirstScreenState extends State<FirstScreen> {
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +23,7 @@ class _FirstScreenState extends State<FirstScreen> {
                seconds: 6,
                navigateAfterSeconds: SecondView(),
              useLoader: true,
-             loaderColor: Colors.grey),
+             loaderColor: Colors.blueAccent.shade700),
            Column(
              mainAxisAlignment: MainAxisAlignment.center,
              children: [
@@ -55,13 +55,14 @@ class SecondView extends StatelessWidget{
             ),
             SizedBox(height: 80),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+              },
               child: Container(
                 height: MediaQuery.of(context).size.height * 0.07,
                 width: MediaQuery.of(context).size.width * 0.65,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(30),
-                    color: Colors.blue),
+                    color: Colors.blueAccent.shade700),
                 child: Center(
                     child: Text(
                       "Login",
@@ -76,25 +77,27 @@ class SecondView extends StatelessWidget{
               height: 20,
             ),
             GestureDetector(
-              onTap: () {},
               child: Container(
                 height: MediaQuery.of(context).size.height * 0.07,
                 width: MediaQuery.of(context).size.width * 0.65,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
                   color: Colors.white,
-                  border: Border.all(color: Colors.blue, width: 3),
+                  border: Border.all(color: Colors.blueAccent.shade700, width: 3),
                 ),
                 child: Center(
                   child: Text(
                     "Criar Conta",
                     style: GoogleFonts.mulish(
-                        color: Colors.blue,
+                        color: Colors.blueAccent.shade700,
                         fontSize: 25,
                         fontWeight: FontWeight.bold),
                   ),
                 ),
               ),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => CreateAccount(),));
+              },
             ),
           ],
         ),
