@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 
-
-class TexFormField extends StatelessWidget {
-  const TexFormField(
+class FormComponent extends StatelessWidget {
+  const FormComponent(
       {Key key,
       this.hintText,
       this.icon,
       this.obscureText,
       this.controller,
-      this.titulo, this.keyboard, this.hintStyle})
+      this.titulo,
+      this.keyboard,
+      this.hintStyle})
       : super(key: key);
 
   final String hintText;
@@ -35,11 +36,10 @@ class TexFormField extends StatelessWidget {
               obscureText: obscureText,
               keyboardType: keyboard,
               decoration: InputDecoration(
-                border: InputBorder.none,
-                prefixIcon: icon,
-                hintText: hintText,
-                hintStyle: hintStyle
-              ),
+                  border: InputBorder.none,
+                  prefixIcon: icon,
+                  hintText: hintText,
+                  hintStyle: hintStyle),
             )),
       ],
     );

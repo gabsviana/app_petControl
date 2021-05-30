@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.app_pet_control">
    <application
-        android:label="app_pet_control"
+        android:label="Pet Control"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
