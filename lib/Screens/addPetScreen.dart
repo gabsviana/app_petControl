@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:app_pet_control/components/TextFormField.dart' as textFormField;
+import 'package:app_pet_control/components/RadioButton.dart' as radioButton;
 
 class FormAddPet extends StatefulWidget {
   FormAddPet({Key key}) : super(key: key);
@@ -55,7 +56,7 @@ class _FormAddPetState extends State<FormAddPet> {
                   ),
                   Container(
                       padding: EdgeInsets.only(top: 24, right: 32, left: 32),
-                      height: MediaQuery.of(context).size.height * 0.81,
+                      height: MediaQuery.of(context).size.height,
                       width: MediaQuery.of(context).size.width,
                       decoration: BoxDecoration(
                           color: Colors.white,
@@ -111,7 +112,7 @@ class _FormAddPetState extends State<FormAddPet> {
                               hintStyle: TextStyle(
                                   fontSize: 16, color: Colors.grey.shade600),
                               keyboard: TextInputType.name,
-                              titulo: Text("Nome do pet",
+                              titulo: Text("Nome do Pet",
                                   style: GoogleFonts.balsamiqSans(
                                       color: Colors.grey.shade700,
                                       fontSize: 20)),
@@ -154,7 +155,7 @@ class _FormAddPetState extends State<FormAddPet> {
                                                 color: Colors.grey.shade600),
                                           ),
                                           Icon(
-                                            Icons.arrow_circle_down,
+                                            Icons.calendar_today,
                                             color: Colors.lightBlue,
                                           )
                                         ],
@@ -162,18 +163,34 @@ class _FormAddPetState extends State<FormAddPet> {
                                 ),
                                 Row(
                                   children: [
-                                    Checkbox(value: _checkBox,
-                                        onChanged: (value) {
-                                          setState(() {
-                                            _checkBox =! _checkBox;
-                                          });
-                                        },),
-                                    Text("Não sei",style: GoogleFonts.balsamiqSans(color: Colors.grey.shade700),)
+                                    Checkbox(
+                                      value: _checkBox,
+                                      onChanged: (value) {
+                                        setState(() {
+                                          _checkBox = !_checkBox;
+                                        });
+                                      },
+                                    ),
+                                    Text(
+                                      "Não sei",
+                                      style: GoogleFonts.balsamiqSans(
+                                          color: Colors.black),
+                                    )
                                   ],
-                                )
+                                ),
                               ],
-                            )
-                          ]))
+                            ),
+                            SizedBox(height: 20),
+                            Padding(
+                              padding: const EdgeInsets.only(bottom: 8),
+                              child: Text(
+                                "Sexo Do pet",
+                                style: GoogleFonts.balsamiqSans(
+                                    color: Colors.grey.shade700, fontSize: 20),
+                              ),
+                            ),
+                            radioButton.RadioButton()
+                          ])),
                 ]))));
   }
 }
