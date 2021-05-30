@@ -8,7 +8,7 @@ class TexFormField extends StatelessWidget {
       this.icon,
       this.obscureText,
       this.controller,
-      this.titulo})
+      this.titulo, this.keyboard, this.hintStyle})
       : super(key: key);
 
   final String hintText;
@@ -16,6 +16,8 @@ class TexFormField extends StatelessWidget {
   final bool obscureText;
   final TextEditingController controller;
   final Text titulo;
+  final TextInputType keyboard;
+  final TextStyle hintStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -31,14 +33,12 @@ class TexFormField extends StatelessWidget {
             child: TextFormField(
               controller: controller,
               obscureText: obscureText,
-              keyboardType: TextInputType.name,
+              keyboardType: keyboard,
               decoration: InputDecoration(
                 border: InputBorder.none,
                 prefixIcon: icon,
                 hintText: hintText,
-                hintStyle: TextStyle(
-                  fontSize: 18,
-                ),
+                hintStyle: hintStyle
               ),
             )),
       ],

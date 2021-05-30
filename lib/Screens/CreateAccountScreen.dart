@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:app_pet_control/components/TextFormField.dart' as textFormField;
+import 'package:app_pet_control/Screens/addPetScreen.dart';
 
 class CreateAccount extends StatelessWidget {
   CreateAccount({Key key}) : super(key: key);
@@ -8,6 +9,7 @@ class CreateAccount extends StatelessWidget {
   final TextEditingController _controllerNome = TextEditingController();
   final TextEditingController _controllerEmail = TextEditingController();
   final TextEditingController _controllerSenha = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +38,7 @@ class CreateAccount extends StatelessWidget {
                   ),
                   Container(
                     padding: EdgeInsets.only(top: 24, right: 32, left: 32),
-                    height: MediaQuery.of(context).size.height * 0.72,
+                    height: MediaQuery.of(context).size.height * 0.81,
                     width: MediaQuery.of(context).size.width,
                     decoration: BoxDecoration(
                         color: Colors.white,
@@ -52,7 +54,7 @@ class CreateAccount extends StatelessWidget {
                               fontSize: 28,
                               fontWeight: FontWeight.w500,
                             )),
-                        SizedBox(height: 40),
+                        SizedBox(height: 50),
                         textFormField.TexFormField(
                           titulo: Text("Nome",
                               style: GoogleFonts.balsamiqSans(
@@ -61,6 +63,8 @@ class CreateAccount extends StatelessWidget {
                           hintText: "Insira seu Nome",
                           controller: _controllerNome,
                           obscureText: false,
+                          keyboard: TextInputType.name,
+
                         ),
                         SizedBox(height: 30),
                         textFormField.TexFormField(
@@ -71,6 +75,7 @@ class CreateAccount extends StatelessWidget {
                           hintText: "Insira seu E-mail",
                           controller: _controllerEmail,
                           obscureText: false,
+                          keyboard: TextInputType.emailAddress,
                         ),
                         SizedBox(height: 30),
                         textFormField.TexFormField(titulo: Text("Senha", style: GoogleFonts.balsamiqSans(
@@ -78,17 +83,22 @@ class CreateAccount extends StatelessWidget {
                           obscureText: true,
                           controller: _controllerSenha,
                           hintText: "Insira sua Senha",
+
                           icon: Icon(Icons.lock),
+                          keyboard: TextInputType.text,
                         ),
                         SizedBox(height: 50),
                         GestureDetector(
+                          onTap: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => FormAddPet(),));
+                          },
                           child: Padding(
-                            padding: const EdgeInsets.only(left: 16, right: 16),
+                            padding: const EdgeInsets.only(right: 16,left: 16),
                             child: Container(
                               width: MediaQuery.of(context).size.width,
                               decoration: BoxDecoration(
                                   color: Colors.blueAccent.shade400,
-                                  borderRadius: BorderRadius.circular(25)),
+                                  borderRadius: BorderRadius.circular(15)),
                               padding: EdgeInsets.all(8),
                               child: Center(
                                 child: Text(
@@ -109,6 +119,12 @@ class CreateAccount extends StatelessWidget {
               ),
             ),
           ),
+           // Positioned(top: -120,right: -20,
+           //   child: Container(
+           //    width: MediaQuery.of(context).size.width * 0.3,
+           //     height: MediaQuery.of(context).size.height * 0.3,
+           //    decoration: BoxDecoration(shape: BoxShape.circle,color: Colors.white),
+           //   ),),
         ],
       ),
     );

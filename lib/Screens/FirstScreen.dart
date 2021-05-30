@@ -20,7 +20,7 @@ class _FirstScreenState extends State<FirstScreen> {
       body: Stack(
          children:[
            SplashScreen(
-               seconds: 6,
+               seconds: 5,
                navigateAfterSeconds: SecondView(),
              useLoader: true,
              loaderColor: Colors.blueAccent.shade700),
