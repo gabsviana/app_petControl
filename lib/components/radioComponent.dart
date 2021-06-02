@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class RadioButton extends StatefulWidget {
-  const RadioButton({Key key}) : super(key: key);
+class RadioComponent extends StatefulWidget {
+  const RadioComponent({Key key}) : super(key: key);
 
   @override
-  _RadioButtonState createState() => _RadioButtonState();
+  _RadioComponentState createState() => _RadioComponentState();
 }
 
-class _RadioButtonState extends State<RadioButton> {
+class _RadioComponentState extends State<RadioComponent> {
   String userChoice;
 
   @override
   Widget build(BuildContext context) {
-    return Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        Text("Macho",style: GoogleFonts.balsamiqSans(
-        color: Colors.black, fontSize: 18)),
+        Text("Macho",
+            style: GoogleFonts.balsamiqSans(color: Colors.black, fontSize: 18)),
         Radio(
             value: "m",
             groupValue: userChoice,
@@ -26,8 +27,8 @@ class _RadioButtonState extends State<RadioButton> {
               });
             }),
         SizedBox(width: 100),
-        Text("Fêmea",style: GoogleFonts.balsamiqSans(
-            color: Colors.black, fontSize: 18)),
+        Text("Fêmea",
+            style: GoogleFonts.balsamiqSans(color: Colors.black, fontSize: 18)),
         Radio(
             value: "f",
             groupValue: userChoice,

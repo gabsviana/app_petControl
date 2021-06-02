@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:app_pet_control/components/TextFormField.dart' as textFormField;
-import 'package:app_pet_control/components/RadioButton.dart' as radioButton;
+import 'package:app_pet_control/components/formComponent.dart';
+import 'package:app_pet_control/components/radioComponent.dart' as radioButton;
 
 class FormAddPet extends StatefulWidget {
   FormAddPet({Key key}) : super(key: key);
@@ -105,7 +105,7 @@ class _FormAddPetState extends State<FormAddPet> {
                               ),
                             )),
                             SizedBox(height: 50),
-                            textFormField.TexFormField(
+                            FormComponent(
                               hintText: "Insira o nome do seu pet",
                               controller: _controllerNome,
                               obscureText: false,
@@ -189,7 +189,7 @@ class _FormAddPetState extends State<FormAddPet> {
                                     color: Colors.grey.shade700, fontSize: 20),
                               ),
                             ),
-                            radioButton.RadioButton()
+                            radioButton.RadioComponent()
                           ])),
                 ]))));
   }

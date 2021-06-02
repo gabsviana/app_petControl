@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 
-
-class TexFormField extends StatelessWidget {
-  const TexFormField(
+class FormComponent extends StatelessWidget {
+  const FormComponent(
       {Key key,
       this.hintText,
       this.icon,
-      this.obscureText,
+      this.obscureText = false,
       this.controller,
-      this.titulo, this.keyboard, this.hintStyle})
+      this.titulo,
+      this.keyboard = TextInputType.multiline,
+      this.hintStyle})
       : super(key: key);
 
   final String hintText;
@@ -26,21 +27,21 @@ class TexFormField extends StatelessWidget {
       children: [
         Padding(padding: const EdgeInsets.only(bottom: 8), child: titulo),
         Container(
-            padding: EdgeInsets.all(8),
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                color: Colors.blueGrey.shade100),
-            child: TextFormField(
-              controller: controller,
-              obscureText: obscureText,
-              keyboardType: keyboard,
-              decoration: InputDecoration(
+          padding: EdgeInsets.all(8),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              color: Colors.blueGrey.shade100),
+          child: TextFormField(
+            controller: controller,
+            obscureText: obscureText,
+            keyboardType: keyboard,
+            decoration: InputDecoration(
                 border: InputBorder.none,
                 prefixIcon: icon,
                 hintText: hintText,
-                hintStyle: hintStyle
-              ),
-            )),
+                hintStyle: hintStyle),
+          ),
+        ),
       ],
     );
   }
