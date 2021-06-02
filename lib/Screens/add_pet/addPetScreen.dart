@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:app_pet_control/components/FormComponent.dart';
+import 'package:app_pet_control/components/formComponent.dart';
 
 class FormAddPet extends StatefulWidget {
   FormAddPet({Key key}) : super(key: key);

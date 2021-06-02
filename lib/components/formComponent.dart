@@ -5,10 +5,10 @@ class FormComponent extends StatelessWidget {
       {Key key,
       this.hintText,
       this.icon,
-      this.obscureText,
+      this.obscureText = false,
       this.controller,
       this.titulo,
-      this.keyboard,
+      this.keyboard = TextInputType.multiline,
       this.hintStyle})
       : super(key: key);
 
@@ -27,20 +27,21 @@ class FormComponent extends StatelessWidget {
       children: [
         Padding(padding: const EdgeInsets.only(bottom: 8), child: titulo),
         Container(
-            padding: EdgeInsets.all(8),
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                color: Colors.blueGrey.shade100),
-            child: TextFormField(
-              controller: controller,
-              obscureText: obscureText,
-              keyboardType: keyboard,
-              decoration: InputDecoration(
-                  border: InputBorder.none,
-                  prefixIcon: icon,
-                  hintText: hintText,
-                  hintStyle: hintStyle),
-            )),
+          padding: EdgeInsets.all(8),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              color: Colors.blueGrey.shade100),
+          child: TextFormField(
+            controller: controller,
+            obscureText: obscureText,
+            keyboardType: keyboard,
+            decoration: InputDecoration(
+                border: InputBorder.none,
+                prefixIcon: icon,
+                hintText: hintText,
+                hintStyle: hintStyle),
+          ),
+        ),
       ],
     );
   }

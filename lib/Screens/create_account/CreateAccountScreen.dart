@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:app_pet_control/components/FormComponent.dart';
+import 'package:app_pet_control/components/formComponent.dart';
 import 'package:app_pet_control/Screens/add_pet/addPetScreen.dart';
 
 class CreateAccount extends StatelessWidget {
