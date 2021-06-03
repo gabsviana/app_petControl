@@ -32,6 +32,10 @@ class FormComponent extends StatelessWidget {
               borderRadius: BorderRadius.circular(15),
               color: Colors.blueGrey.shade100),
           child: TextFormField(
+            validator: (value) {
+              if (value.isEmpty) return "O Campo é Obrigatório";
+              return null;
+            },
             controller: controller,
             obscureText: obscureText,
             keyboardType: keyboard,

@@ -10,6 +10,9 @@ class CreateAccount extends StatelessWidget {
   final TextEditingController _controllerEmail = TextEditingController();
   final TextEditingController _controllerSenha = TextEditingController();
 
+  // FormKey para validação de formulario
+  final GlobalKey formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,67 +47,67 @@ class CreateAccount extends StatelessWidget {
                         borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(20),
                             topRight: Radius.circular(20))),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text("Bem-Vindo!",
-                            textAlign: TextAlign.start,
-                            style: GoogleFonts.balsamiqSans(
-                              fontSize: 28,
-                              fontWeight: FontWeight.w500,
-                            )),
-                        SizedBox(height: 50),
-                        FormComponent(
-                          titulo: Text("Nome",
+                    child: Form(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text("Bem-Vindo!",
+                              textAlign: TextAlign.start,
                               style: GoogleFonts.balsamiqSans(
-                                  color: Colors.grey.shade700, fontSize: 20)),
-                          icon: Icon(Icons.person),
-                          hintText: "Insira seu Nome",
-                          controller: _controllerNome,
-                          obscureText: false,
-                          keyboard: TextInputType.name,
-                        ),
-                        SizedBox(height: 30),
-                        FormComponent(
-                          titulo: Text("E-mail",
-                              style: GoogleFonts.balsamiqSans(
-                                  color: Colors.grey.shade700, fontSize: 20)),
-                          icon: Icon(Icons.email),
-                          hintText: "Insira seu E-mail",
-                          controller: _controllerEmail,
-                          obscureText: false,
-                          keyboard: TextInputType.emailAddress,
-                        ),
-                        SizedBox(height: 30),
-                        FormComponent(
-                          titulo: Text(
-                            "Senha",
-                            style: GoogleFonts.balsamiqSans(
-                                color: Colors.grey.shade700, fontSize: 20),
+                                fontSize: 28,
+                                fontWeight: FontWeight.w500,
+                              )),
+                          SizedBox(height: 50),
+                          FormComponent(key: formKey,
+                            titulo: Text("Nome",
+                                style: GoogleFonts.balsamiqSans(
+                                    color: Colors.grey.shade700, fontSize: 20)),
+                            icon: Icon(Icons.person),
+                            hintText: "Insira seu Nome",
+                            controller: _controllerNome,
+                            obscureText: false,
+                            keyboard: TextInputType.name,
                           ),
-                          obscureText: true,
-                          controller: _controllerSenha,
-                          hintText: "Insira sua Senha",
-                          icon: Icon(Icons.lock),
-                          keyboard: TextInputType.text,
-                        ),
-                        SizedBox(height: 50),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => FormAddPet(),
-                              ),
-                            );
-                          },
-                          child: Padding(
-                            padding: const EdgeInsets.only(right: 16, left: 16),
+                          SizedBox(height: 30),
+                          FormComponent(
+                            titulo: Text("E-mail",
+                                style: GoogleFonts.balsamiqSans(
+                                    color: Colors.grey.shade700, fontSize: 20)),
+                            icon: Icon(Icons.email),
+                            hintText: "Insira seu E-mail",
+                            controller: _controllerEmail,
+                            obscureText: false,
+                            keyboard: TextInputType.emailAddress,
+                          ),
+                          SizedBox(height: 30),
+                          FormComponent(
+                            titulo: Text(
+                              "Senha",
+                              style: GoogleFonts.balsamiqSans(
+                                  color: Colors.grey.shade700, fontSize: 20),
+                            ),
+                            obscureText: true,
+                            controller: _controllerSenha,
+                            hintText: "Insira sua Senha",
+                            icon: Icon(Icons.lock),
+                            keyboard: TextInputType.text,
+                          ),
+                          SizedBox(height: 50),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => FormAddPet(),
+                                ),
+                              );
+                            },
                             child: Container(
+                              height: 50,
                               width: MediaQuery.of(context).size.width,
                               decoration: BoxDecoration(
                                   color: Colors.blueAccent.shade400,
-                                  borderRadius: BorderRadius.circular(15)),
+                                  borderRadius: BorderRadius.circular(20)),
                               padding: EdgeInsets.all(8),
                               child: Center(
                                 child: Text(
@@ -112,13 +115,13 @@ class CreateAccount extends StatelessWidget {
                                   style: GoogleFonts.balsamiqSans(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 22),
+                                      fontSize: 20),
                                 ),
                               ),
                             ),
-                          ),
-                        )
-                      ],
+                          )
+                        ],
+                      ),
                     ),
                   )
                 ],

@@ -1,3 +1,4 @@
+import 'package:app_pet_control/Screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -10,7 +11,7 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   // FormKey para validação de formulario
-  GlobalKey formKey = GlobalKey<FormState>();
+  final formKey = GlobalKey<FormState>();
 
   // TextEdittingControllers
   TextEditingController _userController = TextEditingController();
@@ -140,7 +141,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               width: MediaQuery.of(context).size.width,
                               height: 50,
                               decoration: BoxDecoration(
-                                color: Colors.blueAccent,
+                                color: Colors.blueAccent.shade400,
                                 borderRadius: BorderRadius.circular(20),
                               ),
                               child: Center(
@@ -148,7 +149,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   "Login",
                                   style: GoogleFonts.balsamiqSans(
                                       color: Colors.white,
-                                      fontSize: 16,
+                                      fontSize: 20,
                                       fontWeight: FontWeight.bold),
                                 ),
                               ),
@@ -169,7 +170,14 @@ class _LoginScreenState extends State<LoginScreen> {
 
   // TODO: Jogar metodos como este em algum gerenciador de estado
   void logMeIn() {
-    print("Usuario -> ${_userController.text}");
-    print("Senha -> ${_passwordController.text}");
+
+    if (formKey.currentState.validate()) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text("Enviando Dados para o Servidor"),
+          duration: Duration(seconds: 2),
+        ), );
+
+    }
   }
 }

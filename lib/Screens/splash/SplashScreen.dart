@@ -27,7 +27,7 @@ class _FirstScreenState extends State<FirstScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SvgPicture.asset(
-                "assets/PetControlLogo.svg",
+                "assets/Svg_Icons/PetControlLogo.svg",
                 height: MediaQuery.of(context).size.height * 0.7,
                 color: Colors.grey.shade800,
               ),
@@ -49,7 +49,7 @@ class SecondView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SvgPicture.asset(
-                "assets/PetControlLogo.svg",
+                "assets/Svg_Icons/PetControlLogo.svg",
                 height: MediaQuery.of(context).size.height * 0.4,
                 color: Colors.grey.shade800,
               ),
